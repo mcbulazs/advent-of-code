@@ -1,0 +1,11 @@
+{
+	"2025": {
+		"1": {
+			"title": "Secret Entrance",
+			"description": "solutions/2025/day1/description.txt",
+			"part1": "solutions/2025/day1/part1.go",
+			"part2": "solutions/2025/day1/part2.go",
+			"input": "solutions/2025/day1/input.txt"
+		}
+	}
+}
