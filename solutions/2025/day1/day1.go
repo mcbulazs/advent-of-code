@@ -23,7 +23,7 @@ func loadInput() []string {
 	}
 
 	// Convert to string and split on newlines
-	lines := strings.Split(strings.ReplaceAll(string(data), "\r\n", "\n"), "\n")
+	lines := strings.Split(strings.TrimSpace(strings.ReplaceAll(string(data), "\r\n", "\n")), "\n")
 
 	return lines
 }

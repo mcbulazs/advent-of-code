@@ -1,7 +1,6 @@
 package day1
 
 import (
-	"log"
 	"math"
 	"strconv"
 )
@@ -10,24 +9,22 @@ func Part2(input []string) string {
 	currentRotation := 50
 	counter := 0
 	for _, v := range input {
-		val, err := strconv.Atoi(v[1:])
-		if err != nil {
-			log.Fatal(err)
-		}
+		val, _ := strconv.Atoi(v[1:])
 
 		var modifier int = 1
 		if v[0] == 'L' {
 			modifier = -1
 		}
 
+		var startfromZero bool = currentRotation == 0
 		currentRotation = currentRotation + (val * modifier)
-		if currentRotation >= 100 {
-			counter += (currentRotation / 100)
-		} else if currentRotation <= 0 {
-			counter -= (currentRotation / 100) - 1
-		}
 
-		currentRotation = int(math.Mod(float64(currentRotation), 100))
+		if !startfromZero && currentRotation <= 0 {
+			counter++
+		}
+		counter += int(math.Abs(float64(currentRotation)) / 100)
+
+		currentRotation = (currentRotation%100 + 100) % 100
 	}
 	return strconv.Itoa(counter)
 }
